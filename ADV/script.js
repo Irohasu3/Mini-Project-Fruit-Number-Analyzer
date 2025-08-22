@@ -1,11 +1,11 @@
-// Constants
+
 const BASE_NUMBER = 42;
 
-// DOM Elements
+
 const analyzeBtn = document.getElementById('analyzeBtn');
 const resultsSection = document.getElementById('resultsSection');
 
-// Input elements
+
 const userNameInput = document.getElementById('userName');
 const userNumberInput = document.getElementById('userNumber');
 const userSentenceInput = document.getElementById('userSentence');
@@ -13,7 +13,7 @@ const fruit1Input = document.getElementById('fruit1');
 const fruit2Input = document.getElementById('fruit2');
 const fruit3Input = document.getElementById('fruit3');
 
-// Result display elements
+
 const displayUserNumber = document.getElementById('displayUserNumber');
 const sumResult = document.getElementById('sumResult');
 const differenceResult = document.getElementById('differenceResult');
@@ -29,7 +29,7 @@ const greetingResult = document.getElementById('greetingResult');
 const fruitsDisplay = document.getElementById('fruitsDisplay');
 const arrayLength = document.getElementById('arrayLength');
 
-// Functions
+
 function greetUser(name) {
     return `Hello, ${name}!`;
 }
@@ -66,7 +66,7 @@ function performStringOperations(sentence) {
 }
 
 function checkNumberConditions(number) {
-    // If statement approach
+    
     let ifResultText;
     if (number > 0) {
         ifResultText = "The number is positive";
@@ -76,7 +76,7 @@ function checkNumberConditions(number) {
         ifResultText = "The number is zero";
     }
 
-    // Ternary operator approach
+   
     const ternaryResultText = number > 0 ? "The number is positive" : 
                              number < 0 ? "The number is negative" : 
                              "The number is zero";
@@ -89,7 +89,7 @@ function checkNumberConditions(number) {
 
 function generateForLoop(number) {
     const numbers = [];
-    const maxDisplay = Math.min(Math.abs(number), 20); // Limit display to 20 numbers
+    const maxDisplay = Math.min(Math.abs(number), 20); 
     
     for (let i = 1; i <= maxDisplay; i++) {
         numbers.push(i);
@@ -144,7 +144,7 @@ function displayForLoopResults(numbers, originalNumber) {
         container.appendChild(numberDiv);
     });
     
-    // Add ellipsis if there are more numbers
+    
     if (originalNumber > 20) {
         const ellipsisDiv = document.createElement('div');
         ellipsisDiv.textContent = `... and ${originalNumber - 20} more numbers`;
@@ -154,11 +154,11 @@ function displayForLoopResults(numbers, originalNumber) {
 }
 
 function displayFunctionAndArrayResults(name, fruits) {
-    // Display greeting
+    
     const greeting = greetUser(name);
     greetingResult.textContent = greeting;
     
-    // Display fruits array
+    
     fruitsDisplay.innerHTML = '';
     fruits.forEach(fruit => {
         const fruitTag = document.createElement('span');
@@ -167,57 +167,57 @@ function displayFunctionAndArrayResults(name, fruits) {
         fruitsDisplay.appendChild(fruitTag);
     });
     
-    // Display array length
+    
     arrayLength.textContent = fruits.length;
 }
 
 function analyzeData() {
-    // Validate all inputs
+    
     if (!validateInputs()) {
         return;
     }
     
-    // Get input values
+    
     const name = userNameInput.value.trim();
     const number = parseFloat(userNumberInput.value);
     const sentence = userSentenceInput.value.trim();
     
-    // 1. Variables & Constants, Arithmetic
+    
     const arithmetic = performArithmetic(number);
     displayArithmeticResults(arithmetic, number);
     
-    // 2. Strings & String Methods
+    
     const stringOps = performStringOperations(sentence);
     displayStringResults(stringOps, sentence);
     
-    // 3. If Statements & Ternary Operator
+    
     const conditions = checkNumberConditions(number);
     displayConditionalResults(conditions);
     
-    // 4. Loops - For loop
+    
     const forLoopNumbers = generateForLoop(number);
     displayForLoopResults(forLoopNumbers, number);
     
-    // 5. Functions & Arrays
+    
     const fruits = createFruitsArray();
     displayFunctionAndArrayResults(name, fruits);
     
-    // Show results section with animation
+    
     resultsSection.style.display = 'block';
     resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// Event listeners
+
 analyzeBtn.addEventListener('click', analyzeData);
 
-// Allow Enter key to trigger analysis
+
 document.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         analyzeData();
     }
 });
 
-// Add some interactive feedback for inputs
+
 const inputs = [userNameInput, userNumberInput, userSentenceInput, fruit1Input, fruit2Input, fruit3Input];
 
 inputs.forEach(input => {
@@ -232,14 +232,15 @@ inputs.forEach(input => {
     });
 });
 
-// Console output for demonstration (optional - can be removed)
+
 console.log('🍎 Fruit & Number Analyzer Loaded!');
 console.log('BASE_NUMBER constant:', BASE_NUMBER);
 
-// Example of while loop (for demonstration in console)
+
 console.log('While loop countdown demonstration:');
 let countdown = 5;
 while (countdown >= 0) {
     console.log(countdown);
     countdown--;
+
 }
