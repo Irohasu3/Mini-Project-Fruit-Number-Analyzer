@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit & Number Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="title">
+                🍎 Fruit & Number Analyzer
+            </h1>
+            <p class="subtitle">Learn JavaScript fundamentals through interactive exercises</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Input Form -->
+        <div class="card input-section">
+            <h2 class="section-title">
+                ⌨️ Input Your Data
+            </h2>
+            
+            <div class="form-grid">
+                <div class="form-column">
+                    <div class="input-group">
+                        <label for="userName">Your Name</label>
+                        <input type="text" id="userName" placeholder="Enter your name" data-testid="input-name">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="userNumber">Your Number</label>
+                        <input type="number" id="userNumber" placeholder="Enter any number" data-testid="input-number">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="userSentence">Short Sentence</label>
+                        <input type="text" id="userSentence" placeholder="Enter a short sentence" data-testid="input-sentence">
+                    </div>
+                </div>
+                
+                <div class="form-column">
+                    <div class="input-group">
+                        <label>Your 3 Favorite Fruits</label>
+                        <input type="text" id="fruit1" placeholder="First fruit" data-testid="input-fruit1">
+                        <input type="text" id="fruit2" placeholder="Second fruit" data-testid="input-fruit2">
+                        <input type="text" id="fruit3" placeholder="Third fruit" data-testid="input-fruit3">
+                    </div>
+                    
+                    <button id="analyzeBtn" class="analyze-btn" data-testid="button-analyze">
+                        🧮 Analyze Data
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="results-section" style="display: none;">
+            <!-- Arithmetic Results -->
+            <div class="card">
+                <h3 class="section-title">
+                    🧮 Variables & Constants, Arithmetic
+                </h3>
+                <div class="info-box">
+                    <p>BASE_NUMBER (constant): <span id="baseNumber" class="highlight" data-testid="text-base-number">42</span></p>
+                    <p>Your number: <span id="displayUserNumber" class="highlight" data-testid="text-user-number"></span></p>
+                </div>
+                <div class="results-grid">
+                    <div class="result-box emerald">
+                        <h4>Sum</h4>
+                        <p id="sumResult" class="result-value" data-testid="text-sum"></p>
+                    </div>
+                    <div class="result-box blue">
+                        <h4>Difference</h4>
+                        <p id="differenceResult" class="result-value" data-testid="text-difference"></p>
+                    </div>
+                    <div class="result-box purple">
+                        <h4>Product</h4>
+                        <p id="productResult" class="result-value" data-testid="text-product"></p>
+                    </div>
+                    <div class="result-box orange">
+                        <h4>Quotient</h4>
+                        <p id="quotientResult" class="result-value" data-testid="text-quotient"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- String Results -->
+            <div class="card">
+                <h3 class="section-title">
+                    📝 Strings & String Methods
+                </h3>
+                <div class="info-box">
+                    <h4>Original Sentence</h4>
+                    <p id="originalSentence" class="sentence-display" data-testid="text-original-sentence"></p>
+                </div>
+                <div class="results-grid-2">
+                    <div class="result-box indigo">
+                        <h4>Uppercase</h4>
+                        <p id="uppercaseResult" class="result-text" data-testid="text-uppercase"></p>
+                    </div>
+                    <div class="result-box teal">
+                        <h4>Lowercase</h4>
+                        <p id="lowercaseResult" class="result-text" data-testid="text-lowercase"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conditional Results -->
+            <div class="card">
+                <h3 class="section-title">
+                    🔀 If Statements & Ternary Operator
+                </h3>
+                <div class="results-grid-2">
+                    <div class="result-box green">
+                        <h4>If Statement Result</h4>
+                        <p id="ifResult" class="result-text" data-testid="text-if-result"></p>
+                    </div>
+                    <div class="result-box yellow">
+                        <h4>Ternary Operator Result</h4>
+                        <p id="ternaryResult" class="result-text" data-testid="text-ternary-result"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loop Results -->
+            <div class="card">
+                <h3 class="section-title">
+                    🔄 Loops
+                </h3>
+                <div class="results-grid-2">
+                    <div class="result-box cyan">
+                        <h4>For Loop (1 to your number)</h4>
+                        <div class="loop-output" id="forLoopResult" data-testid="text-for-loop"></div>
+                    </div>
+                    <div class="result-box rose">
+                        <h4>While Loop (countdown from 5)</h4>
+                        <div class="loop-output" id="whileLoopResult" data-testid="text-while-loop">
+                            <div>5</div>
+                            <div>4</div>
+                            <div>3</div>
+                            <div>2</div>
+                            <div>1</div>
+                            <div>0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Function & Array Results -->
+            <div class="card">
+                <h3 class="section-title">
+                    📋 Functions & Arrays
+                </h3>
+                <div class="result-box violet">
+                    <h4>Greeting Function Result</h4>
+                    <p id="greetingResult" class="result-text" data-testid="text-greeting"></p>
+                </div>
+                <div class="result-box amber">
+                    <h4>Your Favorite Fruits Array</h4>
+                    <div id="fruitsDisplay" class="fruits-container" data-testid="list-fruits"></div>
+                    <p class="array-info">Array length: <span id="arrayLength" class="highlight" data-testid="text-array-length"></span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; This webpage is brought to you by, MX3.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
